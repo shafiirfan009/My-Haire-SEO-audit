@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY HAIRE — Strategic SEO Audit | Prepared by Umer Islam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================
+   CSS VARIABLES & RESET
+=========================== */
+:root {
+  --black: #0A0A0A;
+  --black-soft: #111111;
+  --charcoal: #1A1A1A;
+  --charcoal-mid: #242424;
+  --charcoal-light: #2E2E2E;
+  --copper: #B8895A;
+  --copper-light: #CFA97E;
+  --copper-pale: rgba(184, 137, 90, 0.15);
+  --ivory: #F2EBE0;
+  --ivory-soft: #EAE1D5;
+  --ivory-muted: rgba(242, 235, 224, 0.6);
+  --rose: #C8998A;
+  --rose-soft: rgba(200, 153, 138, 0.2);
+  --white: #FAFAFA;
+  --muted: rgba(242, 235, 224, 0.35);
+  --muted-text: rgba(242, 235, 224, 0.55);
+  --border: rgba(184, 137, 90, 0.2);
+  --border-soft: rgba(242, 235, 224, 0.1);
+  --success: #7FB08A;
+  --warning: #D4A24A;
+  --danger: #C47A6A;
+  --nav-h: 72px;
+  --ff-display: 'Cormorant Garamond', serif;
+  --ff-body: 'Jost', sans-serif;
+  --ff-script: 'Dancing Script', cursive;
+  --transition: 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--black);
+  color: var(--ivory);
+  font-family: var(--ff-body);
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: var(--ff-body); }
+
+/* ===========================
+   UTILITY
+=========================== */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.container--wide { max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+
+.label {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.label--muted { color: var(--muted-text); }
+
+.section-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.section-header .label { margin-bottom: 20px; }
+.section-header h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.section-header p {
+  font-size: 15px;
+  color: var(--muted-text);
+  max-width: 560px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--copper);
+  margin: 0 auto 24px;
+}
+
+/* scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===========================
+   NAVIGATION
+=========================== */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-h);
+  transition: background var(--transition), border-color var(--transition);
+  border-bottom: 1px solid transparent;
+}
+#navbar.scrolled {
+  background: rgba(10, 10, 10, 0.96);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-bottom-color: var(--border-soft);
+}
+.nav-inner {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ivory);
+}
+.nav-brand span { color: var(--copper); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--ivory); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.btn-nav-print {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  border: 1px solid var(--border);
+  padding: 9px 22px;
+  transition: all var(--transition);
+  border-radius: 1px;
+}
+.btn-nav-print:hover {
+  background: var(--copper);
+  color: var(--black);
+  border-color: var(--copper);
+}
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-hamburger span {
+  width: 24px;
+  height: 1px;
+  background: var(--ivory);
+  display: block;
+  transition: all 0.3s;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--nav-h);
+  left: 0; right: 0;
+  background: rgba(10, 10, 10, 0.98);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  padding: 32px;
+  z-index: 999;
+  border-bottom: 1px solid var(--border-soft);
+}
+.mobile-nav.open { display: block; }
+.mobile-nav ul { list-style: none; }
+.mobile-nav li { padding: 14px 0; border-bottom: 1px solid var(--border-soft); }
+.mobile-nav a {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory-muted);
+}
+
+/* ===========================
+   HERO
+=========================== */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(184, 137, 90, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 10% 80%, rgba(200, 153, 138, 0.05) 0%, transparent 60%),
+    linear-gradient(160deg, #0A0A0A 0%, #141414 50%, #0F0F0F 100%);
+}
+.hero-texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(184,137,90,0.02) 40px, rgba(184,137,90,0.02) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(184,137,90,0.02) 40px, rgba(184,137,90,0.02) 41px);
+}
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 80px 0;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  animation: fadeUp 0.8s ease forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--copper);
+  flex-shrink: 0;
+}
+.hero-eyebrow .label { margin: 0; }
+
+.logo-placeholder {
+  font-family: var(--ff-display);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--ivory);
+  line-height: 1;
+  margin-bottom: 8px;
+  animation: fadeUp 0.9s 0.1s ease both;
+}
+.logo-placeholder sup {
+  font-size: 0.3em;
+  vertical-align: super;
+  letter-spacing: 0;
+  color: var(--copper);
+}
+
+.hero-script {
+  font-family: var(--ff-script);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: var(--copper-light);
+  margin-bottom: 36px;
+  animation: fadeUp 0.9s 0.2s ease both;
+}
+
+.hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ivory);
+  line-height: 1.3;
+  max-width: 680px;
+  margin-bottom: 24px;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+.hero-title strong { font-style: normal; font-weight: 500; }
+
+.hero-subtitle {
+  font-size: 14px;
+  color: var(--muted-text);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  animation: fadeUp 0.9s 0.4s ease both;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin-bottom: 48px;
+  animation: fadeUp 0.9s 0.5s ease both;
+}
+.hero-meta-item label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.hero-meta-item p {
+  font-size: 13px;
+  color: var(--ivory-muted);
+  font-weight: 300;
+}
+.hero-meta-item a { color: var(--ivory-muted); border-bottom: 1px solid var(--border); transition: color var(--transition); }
+.hero-meta-item a:hover { color: var(--copper); }
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  animation: fadeUp 0.9s 0.6s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--copper);
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 1px;
+  transition: all var(--transition);
+}
+.btn-primary:hover { background: var(--copper-light); transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  color: var(--ivory-muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  border-radius: 1px;
+  transition: all var(--transition);
+}
+.btn-outline:hover { border-color: var(--copper); color: var(--copper); transform: translateY(-2px); }
+
+.btn-arrow::after { content: '→'; font-size: 14px; }
+
+.hero-deco {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 420px;
+  animation: fadeUp 1.2s 0.3s ease both;
+}
+.hero-deco-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+.hero-deco-ring:nth-child(1) { inset: 0; animation: rotate 30s linear infinite; }
+.hero-deco-ring:nth-child(2) { inset: 40px; border-color: var(--rose-soft); animation: rotate 22s linear infinite reverse; }
+.hero-deco-ring:nth-child(3) { inset: 90px; animation: rotate 16s linear infinite; }
+.hero-deco-center {
+  position: absolute;
+  inset: 160px;
+  border-radius: 50%;
+  background: var(--copper-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-deco-text {
+  font-family: var(--ff-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--copper-light);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+@keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===========================
+   SNAPSHOT / AUDIT CARDS
+=========================== */
+#snapshot {
+  padding: 120px 0 100px;
+  position: relative;
+  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.snapshot-card {
+  background: var(--charcoal);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition), transform var(--transition);
+}
+.snapshot-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+}
+.snapshot-card:hover { background: var(--charcoal-mid); transform: translateY(-4px); }
+.snapshot-card:hover::before { transform: scaleX(1); }
+
+.snapshot-card--accent { background: var(--charcoal-mid); }
+.snapshot-card--accent::before { transform: scaleX(1); }
+
+.snapshot-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+.snapshot-icon--copper { background: var(--copper-pale); color: var(--copper); }
+.snapshot-icon--rose { background: var(--rose-soft); color: var(--rose); }
+.snapshot-icon--success { background: rgba(127,176,138,0.15); color: var(--success); }
+.snapshot-icon--warning { background: rgba(212,162,74,0.15); color: var(--warning); }
+.snapshot-icon--danger { background: rgba(196,122,106,0.15); color: var(--danger); }
+
+.snapshot-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 12px;
+}
+.snapshot-card p {
+  font-size: 13px;
+  color: var(--muted-text);
+  line-height: 1.75;
+}
+.snapshot-card ul {
+  list-style: none;
+  margin-top: 16px;
+}
+.snapshot-card ul li {
+  font-size: 12.5px;
+  color: var(--muted-text);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.snapshot-card ul li::before {
+  content: '—';
+  color: var(--copper);
+  flex-shrink: 0;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+/* ===========================
+   EXECUTIVE SUMMARY
+=========================== */
+#summary {
+  padding: 120px 0;
+  background: var(--black-soft);
+  position: relative;
+  overflow: hidden;
+}
+#summary::before {
+  content: '';
+  position: absolute;
+  right: -200px;
+  top: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184,137,90,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.summary-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.summary-left .label { margin-bottom: 20px; }
+.summary-left h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ivory);
+  margin-bottom: 28px;
+}
+.summary-left h2 em { font-style: italic; color: var(--copper-light); }
+.summary-left p {
+  font-size: 14px;
+  color: var(--muted-text);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.summary-pull-quote {
+  border-left: 2px solid var(--copper);
+  padding: 20px 24px;
+  margin: 32px 0;
+  background: var(--copper-pale);
+}
+.summary-pull-quote p {
+  font-family: var(--ff-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.summary-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.summary-pillar {
+  padding: 28px;
+  border: 1px solid var(--border-soft);
+  background: var(--charcoal);
+  transition: border-color var(--transition), background var(--transition);
+}
+.summary-pillar:hover { border-color: var(--border); background: var(--charcoal-mid); }
+.summary-pillar h4 {
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.summary-pillar h4 span {
+  font-family: var(--ff-body);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--copper);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  margin-left: auto;
+}
+.summary-pillar p {
+  font-size: 13px;
+  color: var(--muted-text);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ===========================
+   INSIGHT METER
+=========================== */
+#meters {
+  padding: 120px 0;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.meters-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 60px,
+    rgba(184, 137, 90, 0.015) 60px,
+    rgba(184, 137, 90, 0.015) 61px
+  );
+}
+
+.meters-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.meter-card {
+  background: var(--charcoal);
+  padding: 36px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.meter-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--copper-pale);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.meter-card:hover::after { opacity: 1; }
+
+.meter-arc-wrap {
+  width: 120px;
+  height: 60px;
+  margin: 0 auto 20px;
+  position: relative;
+  overflow: hidden;
+}
+.meter-arc-bg, .meter-arc-fill {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: 0; left: 0;
+}
+.meter-arc-bg { border: 3px solid var(--charcoal-light); }
+.meter-arc-fill {
+  border: 3px solid transparent;
+  border-top-color: var(--copper);
+  border-right-color: var(--copper);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform 1s ease;
+}
+.meter-arc-fill--1 { --rot: -45deg; }
+.meter-arc-fill--2 { --rot: -20deg; }
+.meter-arc-fill--3 { --rot: -40deg; }
+.meter-arc-fill--4 { --rot: -55deg; }
+.meter-arc-fill.rose { border-top-color: var(--rose); border-right-color: var(--rose); }
+.meter-arc-fill.success { border-top-color: var(--success); border-right-color: var(--success); }
+.meter-arc-fill.warning { border-top-color: var(--warning); border-right-color: var(--warning); }
+
+.meter-score {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--ff-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ivory);
+}
+.meter-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--muted-text);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.meter-desc {
+  font-size: 12px;
+  color: var(--muted-text);
+  line-height: 1.65;
+  position: relative;
+  z-index: 1;
+}
+.meter-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+}
+.meter-tag--high { background: rgba(196,122,106,0.2); color: var(--danger); }
+.meter-tag--med { background: rgba(212,162,74,0.2); color: var(--warning); }
+.meter-tag--low { background: rgba(127,176,138,0.2); color: var(--success); }
+.meter-tag--opp { background: var(--copper-pale); color: var(--copper); }
+
+/* ===========================
+   KEY FINDINGS — ACCORDION
+=========================== */
+#findings {
+  padding: 120px 0;
+  background: var(--black-soft);
+}
+
+.findings-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--border-soft);
+  margin-bottom: 48px;
+}
+.findings-tab {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--muted-text);
+  padding: 16px 28px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+.findings-tab:hover { color: var(--ivory); }
+.findings-tab.active { color: var(--copper); border-bottom-color: var(--copper); }
+
+.findings-panel { display: none; }
+.findings-panel.active { display: block; }
+
+.accordion-item {
+  border-bottom: 1px solid var(--border-soft);
+  overflow: hidden;
+}
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+  gap: 20px;
+  cursor: pointer;
+  background: none;
+  text-align: left;
+}
+.accordion-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+.accordion-num {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--border);
+  width: 44px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.accordion-title {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ivory);
+  line-height: 1.3;
+}
+.accordion-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.priority-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 1px;
+}
+.priority-high { background: rgba(196,122,106,0.15); color: var(--danger); }
+.priority-med { background: rgba(212,162,74,0.15); color: var(--warning); }
+
+.accordion-arrow {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--copper);
+  transition: transform var(--transition), border-color var(--transition);
+  flex-shrink: 0;
+}
+.accordion-item.open .accordion-arrow { transform: rotate(45deg); border-color: var(--copper); }
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.accordion-body-inner {
+  padding: 0 0 32px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+.accordion-section h5 {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 10px;
+}
+.accordion-section p {
+  font-size: 13px;
+  color: var(--muted-text);
+  line-height: 1.75;
+}
+
+/* ===========================
+   STRATEGIC OPPORTUNITIES
+=========================== */
+#opportunities {
+  padding: 120px 0;
+  background: var(--black);
+  position: relative;
+}
+
+.opp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.opp-card {
+  background: var(--charcoal);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition);
+}
+.opp-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--copper);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.45s ease;
+}
+.opp-card:hover { background: var(--charcoal-mid); }
+.opp-card:hover::before { transform: scaleY(1); }
+
+.opp-card--span { grid-column: 1 / -1; }
+
+.opp-num {
+  font-family: var(--ff-display);
+  font-size: 4rem;
+  font-weight: 300;
+  color: rgba(184,137,90,0.12);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.opp-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 16px;
+}
+.opp-card p {
+  font-size: 13.5px;
+  color: var(--muted-text);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.opp-card ul {
+  list-style: none;
+}
+.opp-card ul li {
+  font-size: 12.5px;
+  color: var(--muted-text);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.opp-card ul li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--copper);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.missing-pages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 32px;
+}
+.missing-page {
+  background: var(--black);
+  border: 1px dashed rgba(184,137,90,0.3);
+  padding: 20px 22px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.missing-page:hover { border-color: var(--copper); background: var(--copper-pale); }
+.missing-page p {
+  font-size: 12.5px;
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin: 0;
+}
+.missing-page::before {
+  content: '+ Missing';
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--copper);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* ===========================
+   COMPETITOR PERSPECTIVE
+=========================== */
+#competitor {
+  padding: 120px 0;
+  background: var(--black-soft);
+}
+
+.comp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 64px;
+}
+
+.comp-col h3 {
+  font-family: var(--ff-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.comp-col--behind h3 { color: var(--danger); }
+.comp-col--ahead h3 { color: var(--success); }
+
+.comp-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-soft);
+  display: flex;
+  gap: 16px;
+}
+.comp-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.comp-item-icon--behind { background: rgba(196,122,106,0.15); }
+.comp-item-icon--ahead { background: rgba(127,176,138,0.15); }
+.comp-item h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 4px;
+}
+.comp-item p {
+  font-size: 12.5px;
+  color: var(--muted-text);
+  line-height: 1.65;
+}
+
+/* ===========================
+   ROADMAP
+=========================== */
+#roadmap {
+  padding: 120px 0;
+  background: var(--black);
+}
+
+.roadmap-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.roadmap-phase {
+  padding: 48px 36px;
+  background: var(--charcoal);
+  position: relative;
+}
+.roadmap-phase::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.roadmap-phase:nth-child(1)::before { background: var(--copper); }
+.roadmap-phase:nth-child(2)::before { background: var(--rose); }
+.roadmap-phase:nth-child(3)::before { background: var(--success); }
+
+.roadmap-period {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  margin-bottom: 8px;
+}
+.roadmap-phase h3 {
+  font-family: var(--ff-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ivory);
+  margin-bottom: 32px;
+}
+
+.roadmap-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.roadmap-item {
+  padding: 20px;
+  background: var(--black-soft);
+  border-left: 2px solid var(--border-soft);
+  transition: border-color var(--transition), background var(--transition);
+}
+.roadmap-item:hover { border-left-color: var(--copper); background: var(--charcoal-mid); }
+.roadmap-item h4 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 8px;
+}
+.roadmap-item p {
+  font-size: 12px;
+  color: var(--muted-text);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.roadmap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.roadmap-tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+.roadmap-tag--impact { background: rgba(184,137,90,0.15); color: var(--copper); }
+.roadmap-tag--effort { background: var(--border-soft); color: var(--muted-text); }
+.roadmap-tag--efforthi { background: rgba(196,122,106,0.1); color: var(--danger); }
+
+/* ===========================
+   ENGAGEMENT / QUIZ PROPOSAL
+=========================== */
+#engagement {
+  padding: 120px 0;
+  background: var(--black-soft);
+  position: relative;
+  overflow: hidden;
+}
+#engagement::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,137,90,0.06);
+  pointer-events: none;
+}
+#engagement::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,137,90,0.04);
+  pointer-events: none;
+}
+
+.engagement-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.engagement-left .label { margin-bottom: 20px; }
+.engagement-left h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ivory);
+  margin-bottom: 24px;
+}
+.engagement-left h2 em { color: var(--copper-light); font-style: italic; }
+.engagement-left p {
+  font-size: 14px;
+  color: var(--muted-text);
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.quiz-preview {
+  background: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 36px;
+  position: relative;
+}
+.quiz-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.quiz-preview-header h4 {
+  font-family: var(--ff-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ivory);
+}
+.quiz-step-indicator {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted-text);
+}
+.quiz-question {
+  font-family: var(--ff-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--ivory-muted);
+  margin-bottom: 20px;
+}
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.quiz-option {
+  padding: 12px 16px;
+  border: 1px solid var(--border-soft);
+  font-size: 12.5px;
+  color: var(--muted-text);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: center;
+}
+.quiz-option:hover, .quiz-option.selected {
+  border-color: var(--copper);
+  color: var(--ivory);
+  background: var(--copper-pale);
+}
+.quiz-progress-bar {
+  height: 2px;
+  background: var(--charcoal-light);
+  margin-top: 4px;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--copper);
+  width: 20%;
+  transition: width 0.5s ease;
+}
+
+.engagement-benefits {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.engagement-benefit {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.engagement-benefit-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--copper-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.engagement-benefit h5 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 3px;
+}
+.engagement-benefit p {
+  font-size: 12px;
+  color: var(--muted-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===========================
+   FINAL RECOMMENDATIONS
+=========================== */
+#recommendations {
+  padding: 140px 0;
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+.rec-bg-deco {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 70% at 50% 100%, rgba(184,137,90,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.rec-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  margin-top: 64px;
+}
+
+.rec-card {
+  background: var(--charcoal);
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--transition), transform var(--transition);
+}
+.rec-card:hover { background: var(--charcoal-mid); transform: translateY(-6px); }
+.rec-num {
+  font-family: var(--ff-display);
+  font-size: 5rem;
+  font-weight: 300;
+  color: rgba(184,137,90,0.1);
+  line-height: 1;
+  position: absolute;
+  top: 24px; right: 24px;
+}
+.rec-card h3 {
+  font-family: var(--ff-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+.rec-card p {
+  font-size: 13px;
+  color: var(--muted-text);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.rec-closing {
+  text-align: center;
+  margin-top: 88px;
+  padding-top: 64px;
+  border-top: 1px solid var(--border-soft);
+}
+.rec-closing .logo-mark {
+  font-family: var(--ff-display);
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  color: var(--copper);
+  margin-bottom: 24px;
+}
+.rec-closing h2 {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ivory);
+  max-width: 700px;
+  margin: 0 auto 20px;
+  line-height: 1.35;
+}
+.rec-closing p {
+  font-size: 14px;
+  color: var(--muted-text);
+  max-width: 540px;
+  margin: 0 auto 40px;
+  line-height: 1.85;
+}
+.rec-closing .prepared-by {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  margin-top: 32px;
+}
+.rec-closing .prepared-by strong { color: var(--copper); }
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background: var(--black-soft);
+  border-top: 1px solid var(--border-soft);
+  padding: 48px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-brand {
+  font-family: var(--ff-display);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  color: var(--ivory-muted);
+}
+.footer-mid {
+  font-size: 11px;
+  color: var(--muted-text);
+  letter-spacing: 0.1em;
+}
+.footer-right { font-size: 11px; color: var(--muted-text); letter-spacing: 0.08em; }
+.footer-right a { color: var(--copper); border-bottom: 1px solid transparent; transition: border-color var(--transition); }
+.footer-right a:hover { border-bottom-color: var(--copper); }
+
+/* ===========================
+   BACK TO TOP
+=========================== */
+#back-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 48px;
+  height: 48px;
+  background: var(--charcoal);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--copper);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition);
+  z-index: 500;
+}
+#back-top.visible { opacity: 1; transform: translateY(0); }
+#back-top:hover { background: var(--copper); color: var(--black); border-color: var(--copper); }
+
+.meter-note { text-align: center; font-size: 11px; color: var(--muted-text); margin-top: 28px; letter-spacing: 0.1em; }
+.quiz-demo-note { font-size: 11px; color: var(--muted-text); text-align: center; margin-top: 12px; letter-spacing: 0.1em; }
+.quiz-mvp { margin-top: 24px; padding: 24px; border: 1px solid var(--border-soft); background: var(--charcoal); }
+.quiz-mvp-text { font-size: 13px; color: var(--muted-text); line-height: 1.75; margin-bottom: 12px; }
+.label--small { margin-bottom: 12px; }
+.rec-highlight { background: var(--charcoal-mid); }
+.rec-num-muted { opacity: 0.06; }
+.rec-highlight-text { font-family: var(--ff-display); font-style: italic; font-size: 1.05rem; color: var(--ivory); line-height: 1.6; }
+.btn-inline-cta { display: inline-flex; margin-right: 16px; }
+.rec-link { color: var(--copper); }
+
+/* ===========================
+   PRINT STYLES
+=========================== */
+@media print {
+  #navbar, #back-top, .btn-nav-print, .hero-deco, .hero-ctas { display: none !important; }
+  body { background: white !important; color: #111 !important; font-size: 12px; }
+  :root {
+    --black: #fff;
+    --black-soft: #f8f8f8;
+    --charcoal: #f0f0f0;
+    --charcoal-mid: #e8e8e8;
+    --ivory: #111;
+    --muted-text: #444;
+    --border: #ddd;
+    --border-soft: #e0e0e0;
+    --copper: #8a6030;
+    --copper-light: #a07040;
+  }
+  section { page-break-inside: avoid; padding: 40px 0; }
+  #hero { min-height: unset; padding: 40px 0; }
+  .snapshot-grid, .meters-grid, .roadmap-phases, .rec-layout { grid-template-columns: 1fr 1fr; }
+  .summary-layout, .comp-layout, .engagement-layout { grid-template-columns: 1fr; }
+  .opp-grid { grid-template-columns: 1fr; }
+  .accordion-body { max-height: none !important; }
+  .accordion-body-inner { grid-template-columns: 1fr; }
+  h1,h2,h3,h4 { color: #111 !important; }
+  .label { color: #8a6030 !important; }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 1024px) {
+  .meters-grid { grid-template-columns: repeat(2, 1fr); }
+  .summary-layout { grid-template-columns: 1fr; gap: 48px; }
+  .engagement-layout { grid-template-columns: 1fr; gap: 48px; }
+}
+
+@media (max-width: 768px) {
+  :root { --nav-h: 60px; }
+  .container, .container--wide { padding: 0 20px; }
+  .nav-links, .nav-actions { display: none; }
+  .nav-hamburger { display: flex; }
+  #hero { min-height: 90vh; }
+  .hero-deco { display: none; }
+  .snapshot-grid { grid-template-columns: 1fr; }
+  .meters-grid { grid-template-columns: 1fr 1fr; }
+  .opp-grid { grid-template-columns: 1fr; }
+  .opp-card--span { grid-column: 1; }
+  .missing-pages-grid { grid-template-columns: 1fr 1fr; }
+  .comp-layout { grid-template-columns: 1fr; }
+  .roadmap-phases { grid-template-columns: 1fr; }
+  .rec-layout { grid-template-columns: 1fr; }
+  .accordion-body-inner { grid-template-columns: 1fr; padding-left: 0; }
+  .hero-meta { gap: 20px; }
+  .findings-tabs { overflow-x: auto; flex-wrap: nowrap; }
+  .findings-tab { white-space: nowrap; padding: 14px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .meters-grid { grid-template-columns: 1fr; }
+  .missing-pages-grid { grid-template-columns: 1fr; }
+  .quiz-options { grid-template-columns: 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .btn-primary, .btn-outline { justify-content: center; }
+  .btn-inline-cta { width: 100%; justify-content: center; margin-right: 0; }
+  .accordion-trigger, .quiz-option { touch-action: manipulation; }
+  section { padding-top: 24px; padding-bottom: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-brand">MY HAIRE<span>®</span></div>
+      <ul class="nav-links">
+        <li><a href="#snapshot">Overview</a></li>
+        <li><a href="#findings">Findings</a></li>
+        <li><a href="#opportunities">Opportunities</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#engagement">Growth Tool</a></li>
+        <li><a href="#recommendations">Summary</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn-nav-print" onclick="window.print()">↓ Download Audit</button>
+      </div>
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="#snapshot" class="mobile-link">Overview</a></li>
+      <li><a href="#findings" class="mobile-link">Key Findings</a></li>
+      <li><a href="#opportunities" class="mobile-link">Opportunities</a></li>
+      <li><a href="#roadmap" class="mobile-link">Roadmap</a></li>
+      <li><a href="#engagement" class="mobile-link">Growth Tool</a></li>
+      <li><a href="#recommendations" class="mobile-link">Summary</a></li>
+      <li><a href="#" onclick="window.print(); return false;">Download Audit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-grain"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="label">Strategic SEO Audit — 2025</span>
+      </div>
+      <!-- Replace with client logo -->
+      <div class="logo-placeholder">MY HAIRE<sup>®</sup></div>
+      <div class="hero-script">Where You Get Your Haire Matters</div>
+      <h1 class="hero-title">
+        A <strong>Premium SEO &amp; Growth Audit</strong><br>
+        for an Afro-Textured Hair Extensions Brand<br>
+        <em>Positioned to Lead Its Niche</em>
+      </h1>
+      <p class="hero-subtitle">
+        This audit reveals where MY HAIRE's commercial website can be strengthened,
+        what organic opportunities are currently being missed, and the clearest path
+        from niche brand to authoritative category destination.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <label>Prepared By</label>
+          <p>Umer Islam</p>
+        </div>
+        <div class="hero-meta-item">
+          <label>Client</label>
+          <p>MY HAIRE</p>
+        </div>
+        <div class="hero-meta-item">
+          <label>Website</label>
+          <p><a href="https://myhaire.com" target="_blank" rel="noopener">myhaire.com</a></p>
+        </div>
+        <div class="hero-meta-item">
+          <label>Findings</label>
+          <p>15 Key Issues Identified</p>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#snapshot" class="btn-primary btn-arrow">View Key Findings</a>
+        <a href="#roadmap" class="btn-outline btn-arrow">See Roadmap</a>
+        <button class="btn-outline" onclick="window.print()">↓ Download PDF</button>
+      </div>
+    </div>
+  </div>
+  <div class="hero-deco">
+    <div class="hero-deco-ring"></div>
+    <div class="hero-deco-ring"></div>
+    <div class="hero-deco-ring"></div>
+    <div class="hero-deco-center">
+      <div class="hero-deco-text">Texture<br>Authority<br>Awaits</div>
+    </div>
+  </div>
+</section>
+
+<!-- SNAPSHOT -->
+<section id="snapshot">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Audit Overview</span>
+      <div class="divider"></div>
+      <h2>What This Audit Found</h2>
+      <p>A clear-eyed assessment of what is working, what is limiting growth, and where the real commercial opportunity lives.</p>
+    </div>
+    <div class="snapshot-grid">
+      <div class="snapshot-card reveal reveal-delay-1">
+        <div class="snapshot-icon snapshot-icon--success">✦</div>
+        <h3>Strongest Existing Assets</h3>
+        <ul>
+          <li>Credible textured-hair niche positioning</li>
+          <li>Founder story rooted in a real market gap</li>
+          <li>Media coverage: Cosmopolitan, Style, Womenpreneur</li>
+          <li>Clear cultural relevance for Black women globally</li>
+          <li>Texture-led product range across 4 categories</li>
+          <li>Texture Matchmaker concept already in place</li>
+        </ul>
+      </div>
+      <div class="snapshot-card snapshot-card--accent reveal reveal-delay-2">
+        <div class="snapshot-icon snapshot-icon--danger">✕</div>
+        <h3>Top Issues Identified</h3>
+        <ul>
+          <li>Main domain acts as routing layer, not authority hub</li>
+          <li>Category structure overlaps and blurs buyer intent</li>
+          <li>Texture pages too thin for their strategic importance</li>
+          <li>Blog content shallow, not tied to purchase decisions</li>
+          <li>No market-specific commercial landing pages</li>
+          <li>AI-search readiness is underdeveloped</li>
+        </ul>
+      </div>
+      <div class="snapshot-card reveal reveal-delay-3">
+        <div class="snapshot-icon snapshot-icon--copper">◈</div>
+        <h3>Biggest Missed Opportunities</h3>
+        <ul>
+          <li>Owning "best extensions for 4C hair" searches</li>
+          <li>Texture-specific landing pages that rank &amp; convert</li>
+          <li>Comparison content: clip-ins vs ponytails vs wigs</li>
+          <li>UAE-specific and Nigeria-specific commercial pages</li>
+          <li>Quiz as a genuine conversion engine, not a sidebar</li>
+          <li>AI citation for recommendation-style queries</li>
+        </ul>
+      </div>
+      <div class="snapshot-card reveal reveal-delay-1">
+        <div class="snapshot-icon snapshot-icon--warning">⚡</div>
+        <h3>Priority Focus Areas</h3>
+        <ul>
+          <li>Domain authority consolidation &amp; architecture clean-up</li>
+          <li>Texture pages rebuilt as commercial guides</li>
+          <li>Decision-support content for undecided buyers</li>
+          <li>Search intent segmentation across the funnel</li>
+          <li>Structured brand entity page for AI visibility</li>
+        </ul>
+      </div>
+      <div class="snapshot-card reveal reveal-delay-2">
+        <div class="snapshot-icon snapshot-icon--rose">◇</div>
+        <h3>Quickest Wins</h3>
+        <ul>
+          <li>Rewrite H1s, titles &amp; meta for niche positioning</li>
+          <li>Elevate the quiz above the fold on homepage</li>
+          <li>Clean footer duplication &amp; broken social elements</li>
+          <li>Strengthen internal links: content → texture → product</li>
+          <li>Add answer-first sections to top category pages</li>
+        </ul>
+      </div>
+      <div class="snapshot-card reveal reveal-delay-3">
+        <div class="snapshot-icon snapshot-icon--success">→</div>
+        <h3>Realistic Upside If Fixed</h3>
+        <p>Not an overnight traffic spike — a stronger commercial base. Better-qualified organic visitors, improved conversion from existing traffic, and genuine AI citability when buyers ask for textured extension recommendations in UAE and Nigeria markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="summary">
+  <div class="container">
+    <div class="summary-layout">
+      <div class="summary-left reveal">
+        <span class="label">Executive Summary</span>
+        <h2>A Real Brand,<br>A Site That <em>Needs to Catch Up</em></h2>
+        <p>MY HAIRE is not another generic extension store. The brand was built around a specific audience — Black women seeking extensions that genuinely match their natural texture — and that positioning is commercially valuable precisely because it narrows the target.</p>
+        <p>The founder story, the textured product range, the media coverage, and the language around matching natural curls all give the brand a believable reason to exist. That is the foundation. The problem is that the website is not expressing it with enough precision or commercial intent.</p>
+        <div class="summary-pull-quote">
+          <p>"The site currently hints at deep texture expertise but does not package it clearly enough for search engines, AI tools, or undecided buyers to fully act on it."</p>
+        </div>
+        <p>The biggest issue is structural: myhaire.com functions more like a routing layer than an authoritative commercial homepage. Combined with thin texture pages, shallow blog content, and no dedicated landing pages for key buying queries, the result is a site that can sell to people who already know what they want — but struggles to guide those who are still deciding.</p>
+        <p>That is the gap. And closing it does not require a full rebuild. It requires sharper architecture, stronger decision-support content, and a quiz turned into a genuine conversion engine.</p>
+      </div>
+      <div class="summary-right reveal reveal-delay-2">
+        <div class="summary-pillars">
+          <div class="summary-pillar">
+            <h4>What is Working <span>Strength</span></h4>
+            <p>Genuine niche credibility, editorial press coverage, and a product range mapped to natural hair use cases rather than generic length and glamour. The founder story is a differentiator competitors cannot replicate.</p>
+          </div>
+          <div class="summary-pillar">
+            <h4>What is Limiting Performance <span>Issue</span></h4>
+            <p>Fragmented domain architecture, overlapping category structure, and content that works at product-page level but not higher in the funnel. Undecided buyers are not being guided well enough.</p>
+          </div>
+          <div class="summary-pillar">
+            <h4>The Core Missed Opportunity <span>Growth</span></h4>
+            <p>Failing to own the pre-purchase questions that matter most to this audience. "Which extensions match 4C hair?" and "What should I buy in Dubai?" should already be MY HAIRE's traffic. They are not yet.</p>
+          </div>
+          <div class="summary-pillar">
+            <h4>The Right Strategic Response <span>Direction</span></h4>
+            <p>Fix the architecture. Rebuild texture pages as commercial guides. Create comparison and recommendation content. Use the quiz to qualify, capture, and convert. Package brand expertise so it can be cited by AI tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHT METER -->
+<section id="meters">
+  <div class="meters-bg"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Performance Signal</span>
+      <div class="divider"></div>
+      <h2>Strategic Insight Indicators</h2>
+      <p>Current performance across the four key dimensions of this audit — with opportunity potential scored against what the brand could realistically achieve.</p>
+    </div>
+    <div class="meters-grid">
+      <div class="meter-card reveal reveal-delay-1">
+        <div class="meter-arc-wrap">
+          <div class="meter-arc-bg"></div>
+          <div class="meter-arc-fill meter-arc-fill--1" id="arc1"></div>
+          <div class="meter-score">4</div>
+        </div>
+        <div class="meter-label">Technical SEO</div>
+        <div class="meter-desc">Domain architecture fragmented across country sites. Authority is split where it should be consolidated. Strong foundation possible with the right restructuring.</div>
+        <span class="meter-tag meter-tag--high">High Priority</span>
+      </div>
+      <div class="meter-card reveal reveal-delay-2">
+        <div class="meter-arc-wrap">
+          <div class="meter-arc-bg"></div>
+          <div class="meter-arc-fill meter-arc-fill--2" id="arc2"></div>
+          <div class="meter-score">5</div>
+        </div>
+        <div class="meter-label">On-Page SEO</div>
+        <div class="meter-desc">Texture pages are thin. Titles undersell the niche. Intent segmentation is unclear. Some product pages are stronger, but they are carrying too much load alone.</div>
+        <span class="meter-tag meter-tag--high">High Priority</span>
+      </div>
+      <div class="meter-card reveal reveal-delay-3">
+        <div class="meter-arc-wrap">
+          <div class="meter-arc-bg"></div>
+          <div class="meter-arc-fill rose meter-arc-fill--3" id="arc3"></div>
+          <div class="meter-score">4</div>
+        </div>
+        <div class="meter-label">Content & Conversion</div>
+        <div class="meter-desc">Blog content is entry-level and not conversion-linked. The quiz concept is right but underdeveloped. Founder story is credible but proof layer needs strengthening.</div>
+        <span class="meter-tag meter-tag--high">High Priority</span>
+      </div>
+      <div class="meter-card reveal reveal-delay-4">
+        <div class="meter-arc-wrap">
+          <div class="meter-arc-bg"></div>
+          <div class="meter-arc-fill warning meter-arc-fill--4" id="arc4"></div>
+          <div class="meter-score">3</div>
+        </div>
+        <div class="meter-label">GEO / AI Readiness</div>
+        <div class="meter-desc">Site has a clear point of view but lacks structured, answer-ready content. High potential to be cited in AI recommendation responses — not yet being captured.</div>
+        <span class="meter-tag meter-tag--opp">High Opportunity</span>
+      </div>
+    </div>
+    <p class="meter-note">Scores reflect current state out of 10. All categories carry significant upside potential.</p>
+  </div>
+</section>
+
+<!-- KEY FINDINGS -->
+<section id="findings">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Key Findings</span>
+      <div class="divider"></div>
+      <h2>15 Findings Across Four Disciplines</h2>
+      <p>Select a category below to explore each finding, the reason it matters, and the recommended resolution.</p>
+    </div>
+    <div class="findings-tabs" role="tablist" aria-label="Findings categories">
+      <button class="findings-tab active" data-tab="technical" role="tab" aria-controls="panel-technical" aria-selected="true" tabindex="0">Technical SEO</button>
+      <button class="findings-tab" data-tab="onpage" role="tab" aria-controls="panel-onpage" aria-selected="false" tabindex="-1">On-Page SEO</button>
+      <button class="findings-tab" data-tab="content" role="tab" aria-controls="panel-content" aria-selected="false" tabindex="-1">Content &amp; Conversion</button>
+      <button class="findings-tab" data-tab="geo" role="tab" aria-controls="panel-geo" aria-selected="false" tabindex="-1">GEO / AI Search</button>
+    </div>
+
+    <!-- TECHNICAL -->
+    <div class="findings-panel active" id="panel-technical">
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" aria-controls="accordion-body-01" id="accordion-trigger-01">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">01</span>
+            <span class="accordion-title">The Main Domain Is Not Carrying Enough Commercial Weight</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>myhaire.com functions primarily as a country selector rather than a true commercial website. Real ecommerce activity sits on separate market sites, leaving the brand homepage doing little ranking or selling work.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>This creates a split-brand problem. Search engines and AI systems are being asked to understand one brand across multiple domains, with the central domain contributing minimal authority or content signal.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Decide which domain should carry main brand authority. Build a tighter structure: one authoritative brand layer, clear country targeting, consistent internal linking between brand and market sites, and shared entity signals throughout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">02</span>
+            <span class="accordion-title">Category Structure Is Overlapping and Commercially Unfocused</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>The shop architecture mixes textures, identity labels, and product types in overlapping ways. Broad labels like "natural hair extensions" sit alongside texture-led and product-type categories without clear differentiation.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>Overlapping categories prevent individual pages from becoming obvious destinations for single buyer intents. The result feels more like a collection of labels than a merchandised buying system.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Rebuild category logic around actual shopping behavior: shop by texture, shop by product type, shop by goal. Example: curly clip-ins, coily ponytails, kinky half wigs, protective styles for natural hair. Remove categories that restate the same intent loosely.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">03</span>
+            <span class="accordion-title">Some Site Elements Reduce Perceived Quality</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-med">Medium Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>Signs of uneven implementation: repetitive footer structures, mixed country references, and homepage elements that do not feel fully controlled. Individually minor, collectively damaging to premium brand perception.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>In premium beauty ecommerce, buyers notice polish. A site selling texture-matched hair needs to feel deliberate and curated. Patchwork presentation undermines trust before the buyer reaches the product page.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Clean visible trust and quality issues: remove broken or weak social feed elements, eliminate footer duplication, standardize country references, and make every path from brand to shop feel intentional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">04</span>
+            <span class="accordion-title">Support Pages Are Not Being Used as Trust or Search Assets</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-med">Medium Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>Contact, delivery, returns, and story pages exist but answer operational minimums without building commercial confidence or providing useful content for search engines.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>Operational clarity affects conversion in this category. Buyers care about delivery timing, returns policies per product type, hair care guidance, and authenticity assurance — all pre-purchase concerns.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Transform support content into decision-support pages: delivery timelines by market, returns guidance per product type, texture care guides tied to products, and "what to know before ordering" guides for UAE and Nigeria.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ON-PAGE -->
+    <div class="findings-panel" id="panel-onpage">
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">05</span>
+            <span class="accordion-title">Texture Pages Are Too Thin for the Job They Should Be Doing</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>The texture section introduces straight, kinky, curly, and coily options but stops short of helping a buyer truly decide which is right for her. Pages are introductory, not commercial guides.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>For MY HAIRE, texture is not just a category — it is the brand's core promise. Thin texture pages underuse the biggest strategic advantage the business holds over generic extension competitors.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Rebuild each texture page into a full commercial guide: who this texture suits, curl pattern match guidance, best product formats, styling outcomes, maintenance level, care notes, product links, and clear FAQs with comparison tables.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">06</span>
+            <span class="accordion-title">Product Pages Are Carrying Too Much Educational Weight</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>Some product pages do a decent job of explaining texture match and use, but the full burden of education has been pushed down to SKU level — where buyers should already be close to a decision, not starting one.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>This structure works only for deep-funnel buyers who already know what they want. The larger segment — buyers who are still choosing — is underserved at collection and texture page level.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Pull decision-making content upward into category and guide pages. Product pages should close the sale — reinforcing and confirming — not carry the entire burden of buyer education from scratch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">07</span>
+            <span class="accordion-title">Search Intent Is Not Being Segmented Sharply Enough</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>The site has useful category and blog themes but insufficient separation between informational, commercial investigation, and transactional buyer intent. Different searchers are being served similar page types regardless of where they are in the journey.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>Different search intents require different page types. Someone searching "how to match extensions to 4C hair" needs educational content. Someone searching "coily ponytail extension Dubai" needs a transactional landing page.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Build separate assets for separate intents: informational (texture education, maintenance), commercial comparison (clip-ins vs ponytails, best for 4C hair), transactional (market and product-specific collection pages with purchase intent framing).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">08</span>
+            <span class="accordion-title">Page Titles and Framing Undersell the Brand's Niche</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-med">Medium Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>Core pages use clean but generic labels: story, blog, contact, textures. The framing is professional but not commercially assertive for a brand with a specific and defensible niche position.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>The site is not generic, so the page framing should not be either. Generic titles miss keyword targeting opportunities and fail to reinforce the texture-expert authority the brand has earned.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Rewrite titles and headings around the category advantage: "Afro-Textured Human Hair Extensions for UAE Shoppers," "Curly, Coily &amp; Kinky Extensions That Blend with Natural Hair," "Texture Match Guide for Clip-Ins, Ponytails, Wigs &amp; Braid Hair."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="findings-panel" id="panel-content">
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">09</span>
+            <span class="accordion-title">The Blog Is Too Shallow to Support Buying Intent</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>Current blog topics are mostly entry-level: hair type explanations, braid ideas, and maintenance basics. This content is easy for competitors to replicate and has limited connection to the purchase journey.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>Entry-level content has limited defensibility and does not create meaningful search value in a competitive category. It also fails to shorten the path from discovery to purchase decision.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Shift content toward purchase-adjacent questions: best extensions for 4C hair that look natural, curly clip-ins vs half wigs, best options for volume without daily styling, how to choose extensions that blend in Dubai heat and humidity. Each piece should link clearly to a product path.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">10</span>
+            <span class="accordion-title">The Founder Story Needs a Stronger Proof Layer</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-med">Medium Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>The brand's founding story — rooted in the genuine experience of finding textured extensions in Dubai — is one of the most commercially valuable assets on the site. The current presentation captures the affinity but not the conversion.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>A founder story builds affinity. Proof closes hesitation. For a premium product category built on trust and texture matching, the gap between those two is where purchase decisions are lost.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Add evidence around the story: clearer sourcing explanations, stronger texture comparison visuals, before/after customer examples organized by texture, better review integration on category pages, and visible explanation of what makes the hair blend naturally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">11</span>
+            <span class="accordion-title">The Best Conversion Asset Is Present but Underdeveloped</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>The Texture Match Quiz is directionally exactly right for this business. The concept is present. The execution is not yet doing the commercial job it is capable of.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>Buyers of textured extensions do not often need more inspiration. They need help choosing correctly. A properly built quiz reduces decision anxiety, qualifies buyers, and captures email leads with genuine purchasing intent attached.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Turn the quiz into a guided selector: inputs include curl pattern, styling goal, preferred product type, comfort with installs, desired finish, budget, and location. Output: recommended texture, product format, shortlist of SKUs, care notes, maintenance level, and shipping guidance by market. Place on homepage, texture pages, and collection pages.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GEO -->
+    <div class="findings-panel" id="panel-geo">
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">12</span>
+            <span class="accordion-title">Good Point of View, Not Enough Answer-Ready Content</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>MY HAIRE clearly serves a specific customer, but the majority of content reads like branded website copy rather than source material designed to resolve specific buyer questions directly and concisely.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>AI systems are more likely to surface pages that answer a question directly, compare options clearly, and explain tradeoffs. If the best available answer is on a competitor's page, that competitor gets cited — not MY HAIRE.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Add answer-first sections to key pages: best for, not ideal for, texture match range, maintenance level, install difficulty, and quick comparison tables. These should appear on category pages, texture pages, and high-intent blog content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">13</span>
+            <span class="accordion-title">Brand Entity Is Understandable but Not Cleanly Packaged</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>The site communicates that the brand is founder-led, textured-hair focused, and Dubai-connected — but this picture is assembled across multiple pages and domains rather than presented in one clear, machine-readable format.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>AI tools perform better when a brand can be understood in a single pass. Scattered identity signals reduce the likelihood of being cited accurately in AI-generated recommendations.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Create one definitive brand/entity page: who MY HAIRE is, who it serves, what it sells, what makes its textures different, which markets it serves, where the founder story fits in, and how sourcing and quality control work. Not a vanity About page — a machine-readable and human-readable source page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">14</span>
+            <span class="accordion-title">GEO Opportunity Is Strongest in Comparison Content</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-high">High Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>MY HAIRE is well positioned to appear in AI-generated answers when users ask practical buying questions — but only if pages are published that answer those questions directly with specific recommendations and comparisons.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>AI visibility in this space is not about chasing buzzwords. It is about being the cleanest source for product recommendation logic when buyers ask comparison-style questions in natural language.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Build pages targeting: best extensions for 4A hair, best extensions for 4C hair, clip-ins vs ponytails for natural hair, everyday textured extensions, best braid hair for boho braids, and what hair extensions work in hot humid weather. These serve both search and AI citation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <div class="accordion-trigger-left">
+            <span class="accordion-num">15</span>
+            <span class="accordion-title">Trust Signals Need to Be Easier to Extract</span>
+          </div>
+          <div class="accordion-meta">
+            <span class="priority-badge priority-med">Medium Priority</span>
+            <span class="accordion-arrow">+</span>
+          </div>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-body-inner">
+            <div class="accordion-section">
+              <h5>Observation</h5>
+              <p>Trust exists on the site but it is scattered. It is not always obvious who is behind the advice, what experience supports it, or why a buyer should trust the texture matching guidance over a competitor's claim.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Why It Matters</h5>
+              <p>AI tools and search users both reward clarity. Content that sounds generic is treated as generic. Named expertise and specific proof signals improve both AI citability and human buyer confidence.</p>
+            </div>
+            <div class="accordion-section">
+              <h5>Recommendation</h5>
+              <p>Add named expertise and evidence: founder commentary where relevant, author attribution on educational content, customer results organized by texture and product type, clearer sourcing and quality explanation, and concise FAQs backed by visible product knowledge.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC OPPORTUNITIES -->
+<section id="opportunities">
+  <div class="container--wide">
+    <div class="section-header reveal">
+      <span class="label">Strategic Opportunities</span>
+      <div class="divider"></div>
+      <h2>The Clearest Growth Levers</h2>
+      <p>From immediate wins to high-leverage structural changes — the opportunities that will move the needle most for MY HAIRE.</p>
+    </div>
+    <div class="opp-grid">
+      <div class="opp-card reveal reveal-delay-1">
+        <div class="opp-num">01</div>
+        <h3>Quickest Wins</h3>
+        <p>Changes that require minimal effort but immediately improve brand clarity, search alignment, and buyer experience.</p>
+        <ul>
+          <li>Rewrite homepage H1 and meta around textured-hair authority</li>
+          <li>Elevate the Texture Quiz above the fold on the homepage</li>
+          <li>Clean footer duplication and broken social feed elements</li>
+          <li>Add answer-first blocks to top category pages</li>
+          <li>Strengthen internal links: content → texture guide → product</li>
+          <li>Standardize country references across all site sections</li>
+        </ul>
+      </div>
+      <div class="opp-card reveal reveal-delay-2">
+        <div class="opp-num">02</div>
+        <h3>Highest-Leverage Changes</h3>
+        <p>Structural shifts that unlock compounding returns in organic traffic, conversion, and AI visibility over time.</p>
+        <ul>
+          <li>Create market-specific landing pages for UAE and Nigeria searches</li>
+          <li>Build a texture-to-product decision system above category level</li>
+          <li>Create commercial comparison pages (clip-ins vs half wigs, etc.)</li>
+          <li>Build a definitive brand entity page for AI readability</li>
+          <li>Implement internal linking as merchandising, not just navigation</li>
+          <li>Consolidate or tighten the multi-domain architecture</li>
+        </ul>
+      </div>
+      <div class="opp-card opp-card--span reveal">
+        <div class="opp-num">03</div>
+        <h3>Pages That Should Exist But Currently Do Not</h3>
+        <p>These commercially relevant pages answer pre-purchase questions with clear product paths attached. Each one represents a buyer who is currently going elsewhere.</p>
+        <div class="missing-pages-grid">
+          <div class="missing-page"><p>Best Extensions for 4C Hair</p></div>
+          <div class="missing-page"><p>Best Clip-Ins for Natural Hair in UAE</p></div>
+          <div class="missing-page"><p>Curly Clip-Ins vs Half Wigs — What's Right for You?</p></div>
+          <div class="missing-page"><p>How to Choose Textured Extensions That Actually Blend</p></div>
+          <div class="missing-page"><p>Best Braid Hair for Boho &amp; Fulani Braids</p></div>
+          <div class="missing-page"><p>Textured Hair Extensions Buying Guide — UAE</p></div>
+          <div class="missing-page"><p>Buying from Nigeria: What to Expect</p></div>
+          <div class="missing-page"><p>Everyday Styles for Coily and Kinky Extensions</p></div>
+          <div class="missing-page"><p>Humidity-Friendly Textured Styles for Dubai Weather</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITOR PERSPECTIVE -->
+<section id="competitor">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Market Perspective</span>
+      <div class="divider"></div>
+      <h2>Where the Market Stands — and Where MY HAIRE Can Lead</h2>
+      <p>An honest look at where competitors have structural advantages, and the differentiation opportunity available to MY HAIRE that no competitor can replicate.</p>
+    </div>
+    <div class="comp-layout">
+      <div class="comp-col comp-col--behind reveal reveal-delay-1">
+        <h3>Where the Site Currently Feels Behind</h3>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--behind">↓</div>
+          <div>
+            <h4>Architecture</h4>
+            <p>The multi-domain, multi-country setup makes the business feel more fragmented than its brand warrants. Competitors with cleaner single-domain architecture appear more authoritative in search.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--behind">↓</div>
+          <div>
+            <h4>Decision Support</h4>
+            <p>Competitors may be winning undecided buyers simply by providing clearer texture-specific landing pages and comparison content — even if MY HAIRE's products are genuinely superior.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--behind">↓</div>
+          <div>
+            <h4>Commercial Content</h4>
+            <p>The current content base does not yet reflect the quality of the niche the brand is trying to own. Entry-level blog content can be reproduced by any brand; deep texture expertise cannot.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--behind">↓</div>
+          <div>
+            <h4>Proof Visibility</h4>
+            <p>Competitors may surface more obvious social proof — before/afters by texture, reviews organized by curl pattern, and sourcing transparency — giving buyers faster confidence signals.</p>
+          </div>
+        </div>
+      </div>
+      <div class="comp-col comp-col--ahead reveal reveal-delay-2">
+        <h3>Where MY HAIRE Can Differentiate</h3>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--ahead">↑</div>
+          <div>
+            <h4>Textured Focus</h4>
+            <p>Most extension brands target a broad market. MY HAIRE's exclusive focus on textured hair — coily, kinky, curly — is a differentiator that cannot be faked by a general-market competitor.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--ahead">↑</div>
+          <div>
+            <h4>Cultural Relevance</h4>
+            <p>The Black woman-owned, Black woman-centered positioning creates genuine cultural authority that resonates with the primary buyer in a way that a generic extension brand cannot claim.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--ahead">↑</div>
+          <div>
+            <h4>Founder Origin Story</h4>
+            <p>A brand built to solve a real problem the founder personally experienced in Dubai carries authenticity that no amount of marketing spend can manufacture for a competitor.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-item-icon comp-item-icon--ahead">↑</div>
+          <div>
+            <h4>Use-Case Orientation</h4>
+            <p>A product range mapped to natural hair use cases — not just length and glamour — gives MY HAIRE a practical commercial advantage in recommendation logic and content strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Implementation Roadmap</span>
+      <div class="divider"></div>
+      <h2>30 · 60 · 90 Day Action Plan</h2>
+      <p>A prioritized sequence of actions organized by phase — balancing effort, impact, and logical build order.</p>
+    </div>
+    <div class="roadmap-phases">
+      <div class="roadmap-phase reveal reveal-delay-1">
+        <div class="roadmap-period">Phase One</div>
+        <h3>30 Days — Foundation</h3>
+        <div class="roadmap-items">
+          <div class="roadmap-item">
+            <h4>Rework Homepage Messaging</h4>
+            <p>Clearer first impression, stronger brand relevance, better support for both SEO and conversion.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Simplify Category Architecture</h4>
+            <p>Remove intent overlap, create stronger landing pages, establish clearer shopper journeys.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--efforthi">High Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Clean Site Quality Issues</h4>
+            <p>Better brand polish, reduced friction across navigation and footer structure.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">Medium Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Low Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Rewrite Titles &amp; H1s</h4>
+            <p>Better search alignment and stronger niche positioning across top pages.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">Medium Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Low Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Expand the Texture Quiz</h4>
+            <p>Better lead qualification, stronger product matching, meaningful email capture.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="roadmap-phase reveal reveal-delay-2">
+        <div class="roadmap-period">Phase Two</div>
+        <h3>60 Days — Content</h3>
+        <div class="roadmap-items">
+          <div class="roadmap-item">
+            <h4>Texture-Led Commercial Landing Pages</h4>
+            <p>Better rankings and conversion for texture-specific searches across all four hair types.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Comparison &amp; Recommendation Pages</h4>
+            <p>Better mid-funnel capture and more AI-citable content for buying decision queries.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>FAQs &amp; Comparison Tables on Category Pages</h4>
+            <p>Better usability and stronger visibility in AI-generated recommendation answers.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Strengthen Proof Across Key Pages</h4>
+            <p>Higher buyer confidence and stronger conversion support at the decision stage.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">Medium Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Build Internal Linking Model</h4>
+            <p>Better crawl flow and stronger movement from content and texture pages to product.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="roadmap-phase reveal reveal-delay-3">
+        <div class="roadmap-period">Phase Three</div>
+        <h3>90 Days — Authority</h3>
+        <div class="roadmap-items">
+          <div class="roadmap-item">
+            <h4>Brand / Entity Authority Page</h4>
+            <p>Clearer brand understanding for both search engines and AI tools when answering brand or recommendation queries.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Country-Specific Commercial Content</h4>
+            <p>Better market relevance and lower intent ambiguity for UAE and Nigeria buyers.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--efforthi">High Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Customer-Proof Content by Texture</h4>
+            <p>Stronger conversion support and more differentiated, competitor-proof content.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--effort">Medium Effort</span>
+            </div>
+          </div>
+          <div class="roadmap-item">
+            <h4>Domain Architecture Review</h4>
+            <p>Better long-term SEO efficiency if consolidated or governed with a tighter strategy.</p>
+            <div class="roadmap-tags">
+              <span class="roadmap-tag roadmap-tag--impact">High Impact</span>
+              <span class="roadmap-tag roadmap-tag--efforthi">High Effort</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT TOOL PROPOSAL -->
+<section id="engagement">
+  <div class="container">
+    <div class="engagement-layout">
+      <div class="engagement-left reveal">
+        <span class="label">Growth Lever</span>
+        <h2>The Texture Match Quiz —<br><em>A Conversion Engine, Not a Feature</em></h2>
+        <p>MY HAIRE's buying friction is not lack of interest. It is uncertainty. The customer is usually trying to answer: Which texture matches my natural hair? Should I buy clip-ins, a ponytail, or a half wig? Will this look natural on me?</p>
+        <p>A generic popup offering 10% off does not solve that. A guided quiz does three commercial jobs at once: it engages the visitor, qualifies the buyer, and reduces the decision anxiety that prevents the sale.</p>
+        <div class="engagement-benefits">
+          <div class="engagement-benefit">
+            <div class="engagement-benefit-icon">◈</div>
+            <div>
+              <h5>Engagement</h5>
+              <p>Gives the visitor something commercially useful to do immediately instead of browsing unfocused across overlapping categories.</p>
+            </div>
+          </div>
+          <div class="engagement-benefit">
+            <div class="engagement-benefit-icon">◉</div>
+            <div>
+              <h5>Lead Qualification</h5>
+              <p>Reveals texture range, product type interest, styling goal, budget sensitivity, and market — making follow-up campaigns genuinely targeted.</p>
+            </div>
+          </div>
+          <div class="engagement-benefit">
+            <div class="engagement-benefit-icon">◇</div>
+            <div>
+              <h5>Conversion Support</h5>
+              <p>Narrows the product path quickly. Instead of presenting every category at once, the quiz guides buyers to the right answer — and the right CTA.</p>
+            </div>
+          </div>
+          <div class="engagement-benefit">
+            <div class="engagement-benefit-icon">✦</div>
+            <div>
+              <h5>SEO &amp; GEO Value</h5>
+              <p>The quiz logic becomes the framework for comparison pages, FAQ content, and recommendation summaries — practical AI citability built into the content strategy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="engagement-right reveal reveal-delay-2">
+        <div class="quiz-preview">
+          <div class="quiz-preview-header">
+            <h4>Find Your Texture Match</h4>
+            <span class="quiz-step-indicator">Question 1 of 7</span>
+          </div>
+          <div class="quiz-question">What best describes your natural hair texture?</div>
+          <div class="quiz-options" id="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this)">Straightened / Blown-out</div>
+            <div class="quiz-option" onclick="selectOption(this)">Loose Curls</div>
+            <div class="quiz-option" onclick="selectOption(this)">Curly</div>
+            <div class="quiz-option" onclick="selectOption(this)">Coily</div>
+            <div class="quiz-option" onclick="selectOption(this)">Kinky</div>
+            <div class="quiz-option" onclick="selectOption(this)">Not Sure</div>
+          </div>
+          <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress"></div></div>
+          <p class="quiz-demo-note">DEMO — ILLUSTRATIVE PREVIEW ONLY</p>
+        </div>
+        <div class="quiz-mvp">
+          <div class="label label--muted label--small">MVP Rollout: 30–45 Days</div>
+          <p class="quiz-demo-note quiz-mvp-text">5-question quiz · 1 landing page · 6–8 result outcomes · Email capture · Direct links to top collections</p>
+          <p class="quiz-demo-note quiz-mvp-text">Phase two adds: result page content expansion, automated email flows, country-specific logic, care routine add-ons, and product personalization.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="rec-bg-deco"></div>
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Final Recommendations</span>
+      <div class="divider"></div>
+      <h2>Five Things That Will Change the Trajectory</h2>
+      <p>MY HAIRE does not need a full rebuild. It needs sharper expression of an already credible position.</p>
+    </div>
+    <div class="rec-layout">
+      <div class="rec-card reveal reveal-delay-1">
+        <div class="rec-num">1</div>
+        <h3>Clean the Architecture</h3>
+        <p>Make the site structure work with the brand, not against it. Decide which domain carries authority, clarify country targeting, and rebuild category logic around actual buying behavior rather than overlapping labels.</p>
+      </div>
+      <div class="rec-card reveal reveal-delay-2">
+        <div class="rec-num">2</div>
+        <h3>Make Texture Pages Do Their Job</h3>
+        <p>Each texture page should function as a full commercial guide — not a category label. Curl pattern match guidance, product format recommendations, styling outcomes, maintenance notes, and FAQs. These pages are the brand's biggest organic opportunity.</p>
+      </div>
+      <div class="rec-card reveal reveal-delay-3">
+        <div class="rec-num">3</div>
+        <h3>Create Decision-Ready Content</h3>
+        <p>Build the pages that answer real buyer questions: best for 4C hair, clip-ins vs half wigs, what blends in Dubai heat. Content that shortens the path from discovery to purchase and becomes the cleanest answer for AI recommendation queries.</p>
+      </div>
+      <div class="rec-card reveal reveal-delay-1">
+        <div class="rec-num">4</div>
+        <h3>Turn the Quiz into a Revenue Engine</h3>
+        <p>The concept is already there. Elevate it, expand its logic, connect it to email capture, and use it on every page where buyer uncertainty peaks. A properly built quiz is the site's most commercially efficient asset.</p>
+      </div>
+      <div class="rec-card reveal reveal-delay-2">
+        <div class="rec-num">5</div>
+        <h3>Package Expertise for AI Visibility</h3>
+        <p>Build a definitive brand entity page. Add answer-first blocks and comparison tables to key pages. Attribute content clearly. Make MY HAIRE the cleanest, most citable source when someone asks an AI which extensions suit natural textured hair in UAE or Nigeria.</p>
+      </div>
+      <div class="rec-card rec-highlight reveal reveal-delay-3">
+        <div class="rec-num rec-num-muted">→</div>
+        <h3>The Opportunity in One Line</h3>
+        <p class="rec-highlight-text">MY HAIRE already has what competitors cannot buy. The work now is building a website that is as credible, as specific, and as commercially sharp as the brand behind it.</p>
+      </div>
+    </div>
+    <div class="rec-closing reveal">
+      <div class="logo-mark">MY HAIRE®</div>
+      <h2>Built for the woman who wants extensions that actually feel like hers.</h2>
+      <p>This audit has identified the precise gap between where the brand stands today and where its positioning, product range, and founder story deserve to take it. The path is clear. The effort is achievable. The upside is significant.</p>
+      <div>
+        <a href="#snapshot" class="btn-primary btn-inline-cta">Review Findings</a>
+        <button class="btn-outline btn-inline-cta" onclick="window.print()">↓ Download This Audit</button>
+      </div>
+      <p class="prepared-by">Audit prepared by <strong>Umer Islam</strong> &nbsp;·&nbsp; Client: <strong>MY HAIRE</strong> &nbsp;·&nbsp; <a href="https://myhaire.com" class="rec-link" target="_blank" rel="noopener">myhaire.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">MY HAIRE® — Strategic SEO Audit</div>
+      <div class="footer-mid">Prepared by Umer Islam &nbsp;·&nbsp; Confidential Client Report</div>
+      <div class="footer-right">
+        <a href="https://myhaire.com" target="_blank" rel="noopener">myhaire.com</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+// ===========================
+// NAVBAR SCROLL
+// ===========================
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('back-top').classList.toggle('visible', window.scrollY > 500);
+});
+
+// ===========================
+// MOBILE NAV
+// ===========================
+const navToggle = document.getElementById('nav-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+navToggle.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+
+// ===========================
+// SCROLL REVEAL
+// ===========================
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// ===========================
+// ACCORDION
+// ===========================
+document.querySelectorAll('.accordion-trigger').forEach((trigger, index) => {
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-controls', 'accordion-body-' + (index + 1));
+  trigger.setAttribute('id', 'accordion-trigger-' + (index + 1));
+
+  const item = trigger.closest('.accordion-item');
+  const body = item.querySelector('.accordion-body');
+  body.setAttribute('id', 'accordion-body-' + (index + 1));
+  body.setAttribute('aria-labelledby', trigger.id);
+
+  const toggle = () => {
+    const isOpen = item.classList.contains('open');
+    const panel = item.closest('.findings-panel');
+
+    panel.querySelectorAll('.accordion-item.open').forEach(openItem => {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.accordion-body').style.maxHeight = '0';
+        openItem.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    if (isOpen) {
+      item.classList.remove('open');
+      body.style.maxHeight = '0';
+      trigger.setAttribute('aria-expanded', 'false');
+    } else {
+      item.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      trigger.setAttribute('aria-expanded', 'true');
+    }
+  };
+
+  trigger.addEventListener('click', toggle);
+  trigger.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      toggle();
+    }
+  });
+});
+
+// ===========================
+// TABS
+// ===========================
+const tabs = document.querySelectorAll('.findings-tab');
+const panels = document.querySelectorAll('.findings-panel');
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+
+    tabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+      t.setAttribute('tabindex', '-1');
+    });
+
+    panels.forEach(p => p.classList.remove('active'));
+
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+    document.getElementById('panel-' + target).classList.add('active');
+    document.getElementById('panel-' + target).querySelectorAll('.accordion-body').forEach(ab => {
+      ab.style.maxHeight = '0';
+      ab.closest('.accordion-item').classList.remove('open');
+      ab.previousElementSibling?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  tab.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      const newIndex = event.key === 'ArrowRight'
+        ? (index + 1) % tabs.length
+        : (index - 1 + tabs.length) % tabs.length;
+      tabs[newIndex].focus();
+    }
+  });
+});
+
+// ===========================
+// QUIZ DEMO
+// ===========================
+document.querySelectorAll('.findings-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.findings-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.findings-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + target).classList.add('active');
+  });
+});
+
+// ===========================
+// QUIZ DEMO
+// ===========================
+const questions = [
+  { q: "What best describes your natural hair texture?", opts: ["Straightened / Blown-out","Loose Curls","Curly","Coily","Kinky","Not Sure"] },
+  { q: "What is your main styling goal?", opts: ["Add Volume","Add Length","Protective Style","Easy Everyday","Braid Styles","Special Occasion"] },
+  { q: "What product are you most open to?", opts: ["Clip-Ins","Ponytail","Half Wig","Full Wig","Braid Hair","Not Sure"] },
+  { q: "How much daily styling effort suits you?", opts: ["Very Low","Some Styling","Maintenance is Fine","I Love Styling"] },
+  { q: "What finish do you want most?", opts: ["Most Natural Blend","Fuller Glam Look","Quick Convenience","Versatile Styling"] },
+  { q: "Where are you shopping from?", opts: ["UAE 🇦🇪","Nigeria 🇳🇬","UK","Other"] },
+  { q: "What is your rough budget range?", opts: ["Under $50","$50–$100","$100–$200","$200+"] }
+];
+let currentQ = 0;
+
+function selectOption(el) {
+  document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  setTimeout(() => {
+    currentQ = (currentQ + 1) % questions.length;
+    const q = questions[currentQ];
+    document.querySelector('.quiz-question').textContent = q.q;
+    document.querySelector('.quiz-step-indicator').textContent = `Question ${currentQ + 1} of 7`;
+    const opts = document.getElementById('quiz-options');
+    opts.innerHTML = '';
+    q.opts.forEach(o => {
+      const div = document.createElement('div');
+      div.className = 'quiz-option';
+      div.textContent = o;
+      div.onclick = function() { selectOption(this); };
+      div.setAttribute('role', 'button');
+      div.setAttribute('tabindex', '0');
+      div.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectOption(div);
+        }
+      });
+      opts.appendChild(div);
+    });
+    document.getElementById('quiz-progress').style.width = `${((currentQ + 1) / 7) * 100}%`;
+  }, 500);
+}
+
+const quizOptions = document.querySelectorAll('.quiz-option');
+quizOptions.forEach(opt => {
+  opt.setAttribute('role', 'button');
+  opt.setAttribute('tabindex', '0');
+  opt.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      selectOption(opt);
+    }
+  });
+});
+
+// ===========================
+// ARC METERS (CSS-based animation on load)
+// ===========================
+const arcConfigs = [
+  { id: 'arc1', score: 4, color: 'var(--copper)' },
+  { id: 'arc2', score: 5, color: 'var(--copper)' },
+  { id: 'arc3', score: 4, color: 'var(--rose)' },
+  { id: 'arc4', score: 3, color: 'var(--warning)' }
+];
+const metersSection = document.getElementById('meters');
+const metersObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    arcConfigs.forEach(cfg => {
+      const el = document.getElementById(cfg.id);
+      if (el) {
+        const pct = cfg.score / 10;
+        const deg = -180 + (pct * 180);
+        setTimeout(() => { el.style.transform = `rotate(${deg}deg)`; }, 300);
+      }
+    });
+    metersObserver.disconnect();
+  }
+}, { threshold: 0.3 });
+metersObserver.observe(metersSection);
+</script>
+</body>
+</html>
